@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="addTaskForm" novalidate>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="task" placeholder="New Task" required>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="taskDetail" placeholder="Add details" required>
+      </div>
+      <button (click)="addTask()" class="pull-right btn btn-link">Save</button>
+    </form>
+  </div>
+</div>

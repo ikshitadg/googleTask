@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+declare const gapi: any;
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  public auth2: any;
+
 }

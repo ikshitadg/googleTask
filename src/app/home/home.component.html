@@ -1,0 +1,80 @@
+<div class="sidenav">
+  <ul>
+    <p>My Tasks</p>
+    <li data-toggle="tooltip" data-placement="right" title="Task">
+      <a href="javascript:void(0)" data-toggle="collapse" data-target="#addform" (click)="show()">
+        <span class="material-iconss glyphicon glyphicon-plus"></span>
+        Add a task</a>
+      <i class="material-icons" data-placement="right" title="More">more_vert</i>
+    </li>
+    <li id="addform" class="collapse" *ngIf="show_data">
+      <app-create></app-create>
+    </li>
+    <li *ngFor="let taskList of taskList">
+      <div class="form-check">
+        <input class="form-check-input" name="radiogroup" title="Mark complete" type="radio" [value]="taskList._id"
+          (change)="onSelectChange($event)">
+        <label class="form-check-label" for="exampleRadios1">
+          {{taskList.task}}
+        </label>
+        <a (click)="showEditForm(taskList._id)">
+          <i class="material-icons" data-toggle="collapse" title="Edit detail" data-target="#editform">mode_edit </i>
+        </a>
+      </div>
+    </li>
+    <li id="editform" class="collapse" *ngIf="showEdit">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="editTaskForm" novalidate>
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="task" [(ngModel)]="selectedTask.task"
+                placeholder="New Task" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" formControlName="taskDetail" [(ngModel)]="selectedTask.taskDetail"
+                placeholder="Add details" required>
+            </div>
+            <button (click)="editTask(selectedTask._id)" class="pull-right btn btn-link">Save</button>
+          </form>
+        </div>
+      </div>
+    </li>
+    <li *ngIf="isFinalDelete">
+      <alert type="success" dismissOnTimeout="5000">
+        1 deleteted
+      </alert>
+    </li>
+    <li *ngIf="isReactiveTask">
+      <alert type="success" dismissOnTimeout="6000">
+        1 marked incomplete
+      </alert>
+    </li>
+    <li *ngIf="isComplete">
+      <alert type="success" dismissOnTimeout="6000">
+        1 completed
+      </alert>
+    </li>
+  </ul>
+  <hr>
+  <li id="footer">
+    <a href="javascript:void(0)" data-toggle="collapse" data-target="#completedTask" (click)="showCompleteTask()">
+      <span>Completed({{completeTaskCount}})</span>
+      <i class="material-icons">keyboard_arrow_down</i>
+    </a>
+  </li>
+  <div id="completedTask" class="collapse" *ngIf="completeTask">
+    <li *ngFor="let list of completeTaskList">
+      <i (click)="reActiveTask(list._id)" title="Mark incomplete" class="material-icons material-iconsss">done</i>
+      <div class="form-check">
+        <label class="form-check-label" for="completeTask">
+          {{list.task}}
+        </label>
+        <a (click)="delete(list._id)">
+          <i class="material-icons" title="Delete task">
+            delete
+          </i>
+        </a>
+      </div>
+    </li>
+  </div>
+</div>

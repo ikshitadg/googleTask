@@ -1,0 +1,85 @@
+/************** sidenav Start ***************/
+
+.sidenav {
+    width: 300px;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    float: right; 
+    z-index: 1;
+    background: #fff;
+    /*background: #37474F;*/
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+    transition: top 0.3s;
+  }
+ 
+  .sidenav ul {
+    width: 100%;
+    margin: 0;
+    margin-top: 50px;
+    padding: 0;
+    float: right;
+  }
+  
+  .sidenav li {
+    text-align: left;
+    list-style: none;
+    padding: 30px 3px;
+    float: right;
+    width: 100%;
+    font-weight: 400;
+    font-size: 14px
+  }
+
+  .sidenav li a {
+    color: #546e7a;
+  }
+  
+  .sidenav li:hover {
+    background: rgba(0, 0, 0, 0.03);
+   
+    color: #546e7a;
+  }
+  
+  .sidenav li a:hover {
+    color: #546e7a;
+  }
+  
+  .sidenav li .material-icons {
+    float: right;
+    text-align: right;
+    width: 20%;
+  }
+  .sidenav li .material-iconsss {
+    float: left;
+    text-align: left;
+    width: 20%;
+  }
+  
+  .sidenav li span {
+    width: 100%;
+    float: right;
+  
+  }
+  .sidenav li .material-iconss {
+      float: left;
+      text-align: left;
+      width: 20%;
+    }
+   #footer {
+      position: absolute;
+      bottom: 0;
+      text-align: left;
+      list-style: none;
+      float: right;
+      width: 100%;
+      font-weight: 200;
+      font-size: 14px;
+    }
+     
+  .material-icons {
+      font-size: 17px;
+    
+  }
+  
